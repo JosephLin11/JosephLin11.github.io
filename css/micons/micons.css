@@ -177,6 +177,9 @@
 .icon-cursor:before {
     content: "\e932";
 }
+.icon-database:before {
+  content: "\e964";
+}
 .icon-desktop:before {
     content: "\e933";
 }
@@ -272,6 +275,9 @@
 }
 .icon-full-screen:before {
     content: "\e952";
+}
+.icon-futbol-o:before {
+  content: "\f1e3";
 }
 .icon-gift:before {
     content: "\e953";
