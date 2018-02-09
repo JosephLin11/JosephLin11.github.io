@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113061306-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-113061306-1');
+    </script>
+
+   <!--- basic page needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>J O S E P H - L I N</title>
+	<meta name="description" content="">  
+	<meta name="author" content="">
+
+   <!-- mobile specific metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+
+ 	<!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">  
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <!-- Material Design for Bootstrap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.0.0-beta.4/dist/css/bootstrap-material-design.min.css" integrity="sha384-R80DC0KVBO4GSTw+wZ5x2zn2pu4POSErBkf8/fSFhPXHxvHJydT0CSgAP2Yo2r4I" crossorigin="anonymous">
+
+   <!-- script
+   ================================================== -->   
+	<script src="js/modernizr.js"></script>
+	<script src="js/pace.min.js"></script>
+
+   <!-- favicons
+	================================================== -->
+	<link rel="icon" type="image/png" href="favicon.png">
+    
+    <style>
+        #material-form {
+            font-size: 1.5rem;
+        }
+        #lot-form{
+            font-size: 1.5rem;
+        }
+    </style>
+   <!-- Node Styling
+	================================================== --> 
+    <style>
+    .bs-sidebar .nav > .active > ul {
+		display: block;
+		margin-bottom: 8px;
+	}
+	text.shadow {
+		stroke: white;
+		stroke-width: 2.3px;
+		opacity: 0.5;
+	}
+	
+	.node {
+		cursor: pointer;
+	}
+
+	.node circle {
+	  fill: #fff;
+	  stroke: steelblue;
+	  stroke-width: 1.5px;
+	}
+
+	.node text {
+	  font: 10px sans-serif;
+	}
+
+	.link {
+	  fill: none;
+	  stroke: #ccc;
+	  stroke-width: 1.5px;
+	}
+	
+    </style>
+
+</head>
+
+<body>
+
+	<!-- header 
+   ================================================== -->
+   <header>   	
+   	<div class="row">
+
+   		<div class="top-bar">
+   			<a class="menu-toggle" href="#"><span>Menu</span></a>
+
+	   		<div class="logo">
+		         <a href="index.html">LINALYTICS</a>
+		      </div>		      
+
+		   	<nav id="main-nav-wrap">
+					<ul class="main-navigation">
+						<li class="current"><a class="smoothscroll"  href="index.html#intro" title="">Home</a></li>
+						<li><a class="smoothscroll"  href="http://joseph-l.in/#about" title="">About</a></li>
+						<li><a class="smoothscroll"  href="http://joseph-l.in/#resume" title="">Resume</a></li>
+						<li><a class="smoothscroll"  href="http://joseph-l.in/#portfolio" title="">Portfolio</a></li>
+						<li><a class="smoothscroll"  href="http://joseph-l.in/#services" title="">Services</a></li>					
+						<li><a class="smoothscroll"  href="http://joseph-l.in/#contact" title="">Contact</a></li>	
+                        
+					</ul>
+				</nav>    		
+   		</div> <!-- /top-bar --> 
+   		
+   	</div> <!-- /row --> 		
+   </header> <!-- /header -->
+    
+    <section>
+    
+    	<div class="mx-auto" style="width: 600px; padding-top: 60px">
+			<form>
+			<div class="form-row align-items-center">
+				<div class="col">
+					<label class="form-control-label" id="material-form" for="formGroupExampleInput">Type Your Material#</label>
+					<input type="text" class="form-control" id="form1" placeholder="Material#" value="17470">
+				</div>
+				<div class="col">
+					<label class="form-control-label" id="lot-form" for="formGroupExampleInput">Type Your Lot#</label>
+					<input type="text" class="form-control" id="form2" placeholder="Lot#" value="3146449">
+				</div>
+				<div class="col-auto">
+				  <button type="button" class="btn btn-outline-primary" id ="dankButton">Display Tree</button>
+				</div>
+			</div>
+			</form>
+	   </div>
+        
+        
+        <!-- load the d3.js library -->	
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <!-- <div id="test">
+
+        </div> -->
+        <!-- <div id="area1"></div> -->
+        <div id="area2"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
+        <script type="text/javascript">
+            
+        var json_data = [
+ {
+  "material_description_out": "PHILOTE TACHYON DEPLETED URU",
+  "material_description_in": "Rick Jamesanium",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10172",
+  "plant_out": "1008",
+  "production_order_number": "1332167",
+  "batch_number_in": "3108091",
+  "material_number_out": "10151780",
+  "batch_number_out": "3128057",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_10151780",
+  "material_type_out": "SEMP",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "PHILOTE TACHYON DEPLETED URU",
+  "material_description_in": "Rick Jamesanium",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10172",
+  "plant_out": "1008",
+  "production_order_number": "1332164",
+  "batch_number_in": "3108091",
+  "material_number_out": "10151780",
+  "batch_number_out": "3128054",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_10151780",
+  "material_type_out": "SEMP",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "PHILOTE TACHYON DEPLETED URU",
+  "material_description_in": "Rick Jamesanium",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10172",
+  "plant_out": "1008",
+  "production_order_number": "1332168",
+  "batch_number_in": "3108091",
+  "material_number_out": "10151780",
+  "batch_number_out": "3128058",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_10151780",
+  "material_type_out": "SEMP",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "PHILOTE TACHYON DEPLETED URU",
+  "material_description_in": "Rick Jamesanium",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10172",
+  "plant_out": "1008",
+  "production_order_number": "1332163",
+  "batch_number_in": "3108091",
+  "material_number_out": "10151780",
+  "batch_number_out": "3128053",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_10151780",
+  "material_type_out": "SEMP",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "PHILOTE TACHYON DEPLETED URU",
+  "material_description_in": "Rick Jamesanium",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10172",
+  "plant_out": "1008",
+  "production_order_number": "1332169",
+  "batch_number_in": "3108091",
+  "material_number_out": "10151780",
+  "batch_number_out": "3128059",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_10151780",
+  "material_type_out": "SEMP",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "PHILOTE TACHYON DEPLETED URU",
+  "material_description_in": "Rick Jamesanium",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10172",
+  "plant_out": "1008",
+  "production_order_number": "1332162",
+  "batch_number_in": "3108091",
+  "material_number_out": "10151780",
+  "batch_number_out": "3128052",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_10151780",
+  "material_type_out": "SEMP",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Atroquinine",
+  "material_description_in": "Tears of Lys",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10051",
+  "plant_out": "1008",
+  "production_order_number": "1338936",
+  "batch_number_in": "3065063",
+  "material_number_out": "12009",
+  "batch_number_out": "3140501",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "SS_INSLN_CONC",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Atroquinine",
+  "material_description_in": "Sodium Hydroxide 0.1N",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "12019",
+  "plant_out": "1008",
+  "production_order_number": "1338936",
+  "batch_number_in": "3140503",
+  "material_number_out": "12009",
+  "batch_number_out": "3140501",
+  "user_text_01": "",
+  "material_type_in": "HALB",
+  "user_text_00": "SS_INSLN_CONC",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Atroquinine",
+  "material_description_in": "Jarrin Root",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "16607",
+  "plant_out": "1008",
+  "production_order_number": "1338936",
+  "batch_number_in": "3068797",
+  "material_number_out": "12009",
+  "batch_number_out": "3140501",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "SS_INSLN_CONC",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Atroquinine",
+  "material_description_in": "Hydrochloric Acid 0.02N",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "12018",
+  "plant_out": "1008",
+  "production_order_number": "1338936",
+  "batch_number_in": "3137184",
+  "material_number_out": "12009",
+  "batch_number_out": "3140501",
+  "user_text_01": "",
+  "material_type_in": "HALB",
+  "user_text_00": "SS_INSLN_CONC",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Rick Jamesanium 1M",
+  "material_description_in": "PHILOTE TACHYON DEPLETED URU",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10151780",
+  "plant_out": "1008",
+  "production_order_number": "1324422",
+  "batch_number_in": "3128057",
+  "material_number_out": "10036",
+  "batch_number_out": "3112030",
+  "user_text_01": "",
+  "material_type_in": "SEMP",
+  "user_text_00": "SS_1M_NA2CO3",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Rick Jamesanium 1M",
+  "material_description_in": "PHILOTE TACHYON DEPLETED URU",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10151780",
+  "plant_out": "1008",
+  "production_order_number": "1324422",
+  "batch_number_in": "3128053",
+  "material_number_out": "10036",
+  "batch_number_out": "3112030",
+  "user_text_01": "",
+  "material_type_in": "SEMP",
+  "user_text_00": "SS_1M_NA2CO3",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Rick Jamesanium 1M",
+  "material_description_in": "PHILOTE TACHYON DEPLETED URU",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10151780",
+  "plant_out": "1008",
+  "production_order_number": "1324422",
+  "batch_number_in": "3128052",
+  "material_number_out": "10036",
+  "batch_number_out": "3112030",
+  "user_text_01": "",
+  "material_type_in": "SEMP",
+  "user_text_00": "SS_1M_NA2CO3",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Rick Jamesanium 1M",
+  "material_description_in": "PHILOTE TACHYON DEPLETED URU",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10151780",
+  "plant_out": "1008",
+  "production_order_number": "1324422",
+  "batch_number_in": "3128059",
+  "material_number_out": "10036",
+  "batch_number_out": "3112030",
+  "user_text_01": "",
+  "material_type_in": "SEMP",
+  "user_text_00": "SS_1M_NA2CO3",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Rick Jamesanium 1M",
+  "material_description_in": "PHILOTE TACHYON DEPLETED URU",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10151780",
+  "plant_out": "1008",
+  "production_order_number": "1324422",
+  "batch_number_in": "3128058",
+  "material_number_out": "10036",
+  "batch_number_out": "3112030",
+  "user_text_01": "",
+  "material_type_in": "SEMP",
+  "user_text_00": "SS_1M_NA2CO3",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Rick Jamesanium 1M",
+  "material_description_in": "PHILOTE TACHYON DEPLETED URU",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10151780",
+  "plant_out": "1008",
+  "production_order_number": "1324422",
+  "batch_number_in": "3128056",
+  "material_number_out": "10036",
+  "batch_number_out": "3112030",
+  "user_text_01": "",
+  "material_type_in": "SEMP",
+  "user_text_00": "SS_1M_NA2CO3",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Rick Jamesanium 1M",
+  "material_description_in": "PHILOTE TACHYON DEPLETED URU",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10151780",
+  "plant_out": "1008",
+  "production_order_number": "1324422",
+  "batch_number_in": "3128055",
+  "material_number_out": "10036",
+  "batch_number_out": "3112030",
+  "user_text_01": "",
+  "material_type_in": "SEMP",
+  "user_text_00": "SS_1M_NA2CO3",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Rick Jamesanium 1M",
+  "material_description_in": "PHILOTE TACHYON DEPLETED URU",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10151780",
+  "plant_out": "1008",
+  "production_order_number": "1324422",
+  "batch_number_in": "3128054",
+  "material_number_out": "10036",
+  "batch_number_out": "3112030",
+  "user_text_01": "",
+  "material_type_in": "SEMP",
+  "user_text_00": "SS_1M_NA2CO3",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Fetaine",
+  "material_description_in": "Noxosilinone Aerodide",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "16728",
+  "plant_out": "1008",
+  "production_order_number": "1336007",
+  "batch_number_in": "3121943",
+  "material_number_out": "19656",
+  "batch_number_out": "3134959",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_19656",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Fetaine",
+  "material_description_in": "L-Glutamine",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10440",
+  "plant_out": "1008",
+  "production_order_number": "1336007",
+  "batch_number_in": "3093429",
+  "material_number_out": "19656",
+  "batch_number_out": "3134959",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_19656",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Fetaine",
+  "material_description_in": "D-Glucose ACS",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10140",
+  "plant_out": "1008",
+  "production_order_number": "1336007",
+  "batch_number_in": "3119060",
+  "material_number_out": "19656",
+  "batch_number_out": "3134959",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_19656",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Fetaine",
+  "material_description_in": "Gentamicin Sulfate",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10141",
+  "plant_out": "1008",
+  "production_order_number": "1336007",
+  "batch_number_in": "683288",
+  "material_number_out": "19656",
+  "batch_number_out": "3134959",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_19656",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Fetaine",
+  "material_description_in": "Pitviper Venom",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10136",
+  "plant_out": "1008",
+  "production_order_number": "1336007",
+  "batch_number_in": "649985",
+  "material_number_out": "19656",
+  "batch_number_out": "3134959",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_19656",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Malkite themfar",
+  "material_description_in": "Meta-cyanide",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10876",
+  "plant_out": "1008",
+  "production_order_number": "1334421",
+  "batch_number_in": "3111908",
+  "material_number_out": "19616",
+  "batch_number_out": "3132665",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_19616",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Rocky and Bullwinkle Anti-zero-Matter",
+  "material_description_in": "Silverthorn",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10000",
+  "plant_out": "1008",
+  "production_order_number": "1329039",
+  "batch_number_in": "3098874",
+  "material_number_out": "17470",
+  "batch_number_out": "3146449",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "MP_17470",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0600"
+ },
+ {
+  "material_description_out": "NA",
+  "material_description_in": "Rocky and Bullwinkle Anti-zero-Matter",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "17470",
+  "plant_out": "NA",
+  "production_order_number": "1329039",
+  "batch_number_in": "3146449",
+  "material_number_out": "NA",
+  "batch_number_out": "NA",
+  "user_text_01": "",
+  "material_type_in": "HALB",
+  "user_text_00": "",
+  "material_type_out": "NA",
+  "standard_text_key": "",
+  "operation_number": "0600"
+ },
+ {
+  "material_description_out": "Rocky and Bullwinkle Anti-zero-Matter",
+  "material_description_in": "Fetaine",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "19656",
+  "plant_out": "1008",
+  "production_order_number": "1329039",
+  "batch_number_in": "3134959",
+  "material_number_out": "17470",
+  "batch_number_out": "3146449",
+  "user_text_01": "",
+  "material_type_in": "HALB",
+  "user_text_00": "MP_17470",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0600"
+ },
+ {
+  "material_description_out": "Rocky and Bullwinkle Anti-zero-Matter",
+  "material_description_in": "GAME BLOUSETONIUM",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10153186",
+  "plant_out": "1008",
+  "production_order_number": "1329039",
+  "batch_number_in": "3134928",
+  "material_number_out": "17470",
+  "batch_number_out": "3146449",
+  "user_text_01": "",
+  "material_type_in": "SEMP",
+  "user_text_00": "MP_17470",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0600"
+ },
+ {
+  "material_description_out": "Rocky and Bullwinkle Anti-zero-Matter",
+  "material_description_in": "Mosfungus",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "22854",
+  "plant_out": "1008",
+  "production_order_number": "1329039",
+  "batch_number_in": "3132620",
+  "material_number_out": "17470",
+  "batch_number_out": "3146449",
+  "user_text_01": "",
+  "material_type_in": "HALB",
+  "user_text_00": "MP_17470",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0600"
+ },
+ {
+  "material_description_out": "Rocky and Bullwinkle Anti-zero-Matter",
+  "material_description_in": "Rick Jamesanium 1M",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10036",
+  "plant_out": "1008",
+  "production_order_number": "1329039",
+  "batch_number_in": "3112030",
+  "material_number_out": "17470",
+  "batch_number_out": "3146449",
+  "user_text_01": "",
+  "material_type_in": "HALB",
+  "user_text_00": "MP_17470",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0600"
+ },
+ {
+  "material_description_out": "Rocky and Bullwinkle Anti-zero-Matter",
+  "material_description_in": "Atroquinine",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "12009",
+  "plant_out": "1008",
+  "production_order_number": "1329039",
+  "batch_number_in": "3140501",
+  "material_number_out": "17470",
+  "batch_number_out": "3146449",
+  "user_text_01": "",
+  "material_type_in": "HALB",
+  "user_text_00": "MP_17470",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0600"
+ },
+ {
+  "material_description_out": "Rocky and Bullwinkle Anti-zero-Matter",
+  "material_description_in": "Fltr 0.2u 30in Pall",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10336",
+  "plant_out": "1008",
+  "production_order_number": "1329039",
+  "batch_number_in": "3145919",
+  "material_number_out": "17470",
+  "batch_number_out": "3146449",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "MP_17470",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0600"
+ },
+ {
+  "material_description_out": "PHILOTE TACHYON DEPLETED URU",
+  "material_description_in": "Rick Jamesanium",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10172",
+  "plant_out": "1008",
+  "production_order_number": "1332166",
+  "batch_number_in": "3108091",
+  "material_number_out": "10151780",
+  "batch_number_out": "3128056",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_10151780",
+  "material_type_out": "SEMP",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "PHILOTE TACHYON DEPLETED URU",
+  "material_description_in": "Rick Jamesanium",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10172",
+  "plant_out": "1008",
+  "production_order_number": "1332165",
+  "batch_number_in": "3108091",
+  "material_number_out": "10151780",
+  "batch_number_out": "3128055",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_10151780",
+  "material_type_out": "SEMP",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Sodium Hydroxide 0.1N",
+  "material_description_in": "Sodium Hydroxide 50% Bottle",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10080",
+  "plant_out": "1008",
+  "production_order_number": "1338948",
+  "batch_number_in": "3106853",
+  "material_number_out": "12019",
+  "batch_number_out": "3140503",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "SS_0-1N_NAOH",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "GAME BLOUSETONIUM",
+  "material_description_in": "Sodium Bicarbonate",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10142",
+  "plant_out": "1008",
+  "production_order_number": "1335938",
+  "batch_number_in": "3105579",
+  "material_number_out": "10153186",
+  "batch_number_out": "3134928",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "WD_10153186",
+  "material_type_out": "SEMP",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Hydrochloric Acid 0.02N",
+  "material_description_in": "Hydrochloric Acid 37%",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "10165",
+  "plant_out": "1008",
+  "production_order_number": "1337394",
+  "batch_number_in": "682761",
+  "material_number_out": "12018",
+  "batch_number_out": "3137184",
+  "user_text_01": "",
+  "material_type_in": "ROH",
+  "user_text_00": "SS_0-02N_HCL",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ },
+ {
+  "material_description_out": "Mosfungus",
+  "material_description_in": "Malkite themfar",
+  "tree": "17470/3146449/1008/R3PCLNT500",
+  "material_number_in": "19616",
+  "plant_out": "1008",
+  "production_order_number": "1334338",
+  "batch_number_in": "3132665",
+  "material_number_out": "22854",
+  "batch_number_out": "3132620",
+  "user_text_01": "",
+  "material_type_in": "HALB",
+  "user_text_00": "SS_22854",
+  "material_type_out": "HALB",
+  "standard_text_key": "NA",
+  "operation_number": "0010"
+ }
+]
+
+
+
+
+
+        // *********** Convert flat data into a nice tree ***************
+        function convertFlatData(flat_data) {
+            // create a name: node map
+            console.log('flat data', flat_data)
+            var dataMap = flat_data.reduce(function(map, node) {
+                var name = node.material_description_in+node.material_number_in+node.batch_number_in;
+                map[name] = node;
+                return map;
+            }, {});
+
+            // create the tree array
+            var treeData = [];
+            flat_data.forEach(function(node) {
+                // add to parent
+                var name_parent = node.material_description_out+node.material_number_out+node.batch_number_out;
+                var parent = dataMap[name_parent];
+                if (parent) {
+                    // create child array if it doesn't exist
+                    (parent.children || (parent.children = []))
+                        // add node to child array
+                        .push(node);
+                } else {
+                    // parent is null or missing
+                    treeData.push(node);
+                }
+            });
+            return treeData;
+        }
+        // show what we've got
+        // d3.select('#area1').append('pre')
+        // 		//return material_num to test if values are returning
+        // 		.text(url)
+        // 		//return json data string to check if tree is built
+        //    	.text(JSON.stringify(treeData, null, '  '));
+
+        // ************** Generate the tree diagram	 *****************
+        var margin = {top: 10, right: 50, bottom: 10, left: 300},
+            width = 1800 - margin.right - margin.left,
+            height = 850 - margin.top - margin.bottom;
+
+        var i = 0,
+            duration = 750,
+            root;
+
+        var tree = d3.layout.tree()
+            .size([height, width]);
+
+        var diagonal = d3.svg.diagonal()
+            .projection(function(d) { return [d.y, d.x]; });
+
+        var svg = d3.select("#area2").append("svg")
+            .attr("width", width + margin.right + margin.left)
+            .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        //Initializes the root with treeData
+
+        function initializeRoot(tree_Data) {
+          console.log('treeData', tree_Data[0])
+          root = tree_Data[0];
+          root.x0 = height / 2;
+          root.y0 = 0;
+
+          function collapse(d) {
+            if (d.children) {
+              d._children = d.children;
+              d._children.forEach(collapse);
+              d.children = null;
+            }
+          };
+          root.children.forEach(collapse);
+          update(root);
+        }            
+            
+        //var json_data = [];
+
+        //On Mouse Click of Display Tree
+        document.getElementById("dankButton").addEventListener("click",function(){   
+            initializeRoot(convertFlatData(json_data))
+            
+        });
+        
+
+/*              var material_num = "0"
+                var lot_num = "0"
+                var url =""
+
+
+                //On Mouse Click of Display Tree
+                document.getElementById("dankButton").addEventListener("click", function(){
+                    var json_data = [];
+                    material_num = document.getElementById("form1").value;
+                    lot_num = document.getElementById("form2").value;
+                    //Build URL
+                    url = "http://dvn01sbxn01.gene.com:8080/SSF_AutoClaveStatus/dimGBT/json/GBT_GENEALOGY/"+material_num+"/"+lot_num+"/100"
+                    //Fetch URL
+                    var myHeaders = new Headers();
+                    var myInit = { method: 'GET',
+                       headers: myHeaders,
+                       mode: 'cors',
+                       cache: 'default' };
+                    var result = fetch(url, myInit)
+                    result.then(function(response) {
+                      console.log('response', response)
+                      console.log('header', response.headers.get('Content-Type'))
+                      return response.json()
+                    }).then(function(text) {
+                      console.log('got text', text.Genealogy.ConsumedItem)
+                      json_data = text.Genealogy.ConsumedItem
+                      initializeRoot(convertFlatData(json_data));
+                    }).catch(function(ex) {
+                      console.log('failed', ex)
+                    })
+                    //Testing Display
+                    initializeRoot(convertFlatData(json_data));
+                    document.getElementById("test").innerHTML = json_data
+                });*/
+
+        d3.select(self.frameElement).style("height", "200px");
+
+        function update(source) {
+
+          // Compute the new tree layout.
+          var nodes = tree.nodes(root).reverse(),
+              links = tree.links(nodes);
+
+          // Normalize for fixed-depth.
+          nodes.forEach(function(d) { d.y = d.depth * 400; });
+
+          // Update the nodes…
+          var node = svg.selectAll("g.node")
+              .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+          // Enter any new nodes at the parent's previous position.
+          var nodeEnter = node.enter().append("g")
+              .attr("class", "node")
+              .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+              .on("click", click);
+
+          nodeEnter.append("circle")
+              .attr("r", 1e-6)
+              .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+          // var text = nodeEnter.append("text")
+             //  .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+             //  .attr("dy", ".35em")
+             //  .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+             //  .text(function(d) { var name_to_return =  d.material_description_in+"\r\n"+d.material_number_in+"\r\n"+d.batch_number_in
+             //   return name_to_return;
+             //    })
+             //  .style("fill-opacity", 1e-6);
+
+            nodeEnter.append("text")
+              .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+              .attr("dy", "1.2em")
+              .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+              .text(function(d) { return d.material_description_in; })
+              .append("tspan")
+              .text(function(d) { return d.material_number_in })
+              .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+              .attr("dy", "10")
+              //.style("fill-opacity", 1e-6);
+              .append("tspan")
+              .text(function(d) { return d.batch_number_in })
+              .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+              .attr("dy", "10")
+              .attr("font-family", "Roboto")
+              //.attr("font-size", "20px")
+              //.style("fill-opacity", 1e-6);
+              .style("fill-opacity", 1);
+
+          // Transition nodes to their new position.
+          var nodeUpdate = node.transition()
+              .duration(duration)
+              .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+          nodeUpdate.select("circle")
+              .attr("r", 4.5)
+              .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+          nodeUpdate.select("text")
+              .style("fill-opacity", 1);
+
+          // Transition exiting nodes to the parent's new position.
+          var nodeExit = node.exit().transition()
+              .duration(duration)
+              .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+              .remove();
+
+          nodeExit.select("circle")
+              .attr("r", 1e-6);
+
+          nodeExit.select("text")
+              .style("fill-opacity", 1e-6);
+
+          // Update the links…
+          var link = svg.selectAll("path.link")
+              .data(links, function(d) { return d.target.id; });
+
+          // Enter any new links at the parent's previous position.
+          link.enter().insert("path", "g")
+              .attr("class", "link")
+              .attr("d", function(d) {
+                var o = {x: source.x0, y: source.y0};
+                return diagonal({source: o, target: o});
+              });
+
+          // Transition links to their new position.
+          link.transition()
+              .duration(duration)
+              .attr("d", diagonal);
+
+          // Transition exiting nodes to the parent's new position.
+          link.exit().transition()
+              .duration(duration)
+              .attr("d", function(d) {
+                var o = {x: source.x, y: source.y};
+                return diagonal({source: o, target: o});
+              })
+              .remove();
+
+          // Stash the old positions for transition.
+          nodes.forEach(function(d) {
+            d.x0 = d.x;
+            d.y0 = d.y;
+          });
+        }
+
+        // Toggle children on click.
+        function click(d) {
+          if (d.children) {
+            d._children = d.children;
+            d.children = null;
+          } else {
+            d.children = d._children;
+            d._children = null;
+          }
+          update(d);
+        }    
+    
+        </script>
+    </section>
+    
+    
+   <div id="preloader"> 
+    	<div id="loader"></div>
+   </div> 
+
+    <!-- Java Script
+    ================================================== --> 
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script src="https://unpkg.com/bootstrap-material-design@4.0.0-beta.4/dist/js/bootstrap-material-design.js" integrity="sha384-3xciOSDAlaXneEmyOo0ME/2grfpqzhhTcM4cE32Ce9+8DW/04AGoTACzQpphYGYe" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+  </body>
+</html> 
