@@ -881,8 +881,10 @@
         //var json_data = [];
 
         //On Mouse Click of Display Tree
-        document.getElementById("dankButton").addEventListener("click",function(){   
-            initializeRoot(convertFlatData(json_data))
+        document.getElementById("dankButton").addEventListener("click",function(){ 
+                initializeRoot(convertFlatData(json_data))
+                document.getElementById("dankButton").disabled = true;
+            
             
         });
         
