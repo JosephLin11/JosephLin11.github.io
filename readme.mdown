@@ -2,7 +2,7 @@
 
 ##### This is a website I built using bootstrap and styling from a credited designer. It is hosted on Github Pages.
 
--[Website](https://joseph-l.in)
+-[Website](https://josephdata.com)
 
 ## Description
 
